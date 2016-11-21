@@ -32,26 +32,21 @@ public class Toot extends JavaPlugin {
 
             } else {
 
-                String output = "";
 
-                for(String s : args) output += s + " ";
+                StringBuilder output = new StringBuilder();
 
-                try {
-
-                    String[] splitText = output.split("");
-                    output = "";
-
-                    for(String s : splitText) output += s + " ";
-
-                    output = output.trim();
-                    player.chat(output);
-
-                    return true;
-
-                } catch (PatternSyntaxException ex) {
-                    player.sendMessage("PatternSyntaxException - input was not a string or would not split");
-                    return false;
+                for(String arg : args) {
+                    for(char c : arg.toCharArray()) {
+                        output.append(c);
+                        output.append(' ');
+                    }
+                    output.append(' ');
                 }
+
+                player.chat(output.toString().trim());
+
+                return true;
+
             }
 
         } else if(cmd.getName().equalsIgnoreCase("shrug") && sender instanceof Player) {
@@ -63,4 +58,5 @@ public class Toot extends JavaPlugin {
 
         return false;
     }
+
 }
