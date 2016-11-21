@@ -1,0 +1,10 @@
+name: alachieToot
+main: co.lachie.bukkit.toot.Toot
+version: 1.0
+commands:
+  toot:
+      description: text after the command gets tooted in public chat
+      usage: /<command> msg
+  shrug:
+      description: sends a shrug emote to the public chat
+      usage: /<command>
